@@ -7,6 +7,33 @@ This is the implementation of the required bulk service.
 ```shell script
 npm install
 npm run dev.start
+
+curl --location --request POST 'localhost:3000/bulk2' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "url": "https://guesty-user-service.herokuapp.com/user/{userID}",
+    "verb": "PUT",
+    "body": {
+        "age": 40
+    },
+    "payload": [
+        {
+            "variables": {
+                "userID": 22
+            }
+        },
+        {
+            "variables": {
+                "userID": 33
+            }
+        },
+        {
+            "variables": {
+                "userID": 54
+            }
+        }
+    ]
+}'
 ``` 
 
 ## Considerations
